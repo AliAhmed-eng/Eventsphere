@@ -127,42 +127,42 @@ function Dashboard() {
 
         {/* Hero Content */}
         <div className="relative z-10 px-4 w-full max-w-4xl mx-auto text-center">
-          <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl shadow-purple-500/5">
+          <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl shadow-purple-500/5">
             {userInfo.name !== "Guest" && (
               <p className="text-purple-400 font-semibold text-lg mb-2">Welcome back,</p>
             )}
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 break-words">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400">
                 {userInfo.name !== "Guest" ? userInfo.name : "EventSphere"}
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 font-light mb-3">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-light mb-3">
               Discover. Book. Experience.
             </p>
-            <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg mb-8">
               Your gateway to unforgettable events — from tech conferences and live concerts to 
               creative workshops and community meetups. Find what moves you.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/events"
-                className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95"
+                className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95"
               >
                 Browse Events
               </Link>
               {userInfo.name === "Guest" ? (
                 <Link
                   to="/login"
-                  className="px-8 py-3 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 active:scale-95"
+                  className="w-full sm:w-auto px-8 py-3 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 active:scale-95"
                 >
                   Sign In
                 </Link>
               ) : (
                 <Link
                   to="/my-bookings"
-                  className="px-8 py-3 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 active:scale-95"
+                  className="w-full sm:w-auto px-8 py-3 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 active:scale-95"
                 >
                   My Bookings
                 </Link>

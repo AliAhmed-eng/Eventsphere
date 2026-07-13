@@ -138,7 +138,7 @@ function EventCard({ event, onBook, rating: propRating, totalReviews: propTotalR
   return (
     <div className="group relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2">
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-44 sm:h-52 overflow-hidden">
         {(() => {
           const img = getEventImage(event)
           return (
@@ -211,15 +211,15 @@ function EventCard({ event, onBook, rating: propRating, totalReviews: propTotalR
         </Link>
 
         {/* Venue & Date */}
-        <div className="flex items-center gap-3 text-sm text-gray-400">
-          <span className="flex items-center gap-1.5 truncate">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-sm text-gray-400">
+          <span className="flex items-center gap-1.5 truncate min-w-0">
             <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <span className="truncate">{event?.venue}</span>
           </span>
-          <span className="shrink-0">•</span>
+          <span className="hidden sm:block shrink-0">•</span>
           <span className="flex items-center gap-1.5 shrink-0">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -249,7 +249,7 @@ function EventCard({ event, onBook, rating: propRating, totalReviews: propTotalR
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-3 pt-1">
+        <div className="flex flex-col sm:flex-row gap-3 pt-1">
           <button
             onClick={() => {
               if (onBook) {
@@ -259,13 +259,13 @@ function EventCard({ event, onBook, rating: propRating, totalReviews: propTotalR
               }
             }}
             disabled={event?.available_seats === 0}
-            className="flex-1 px-4 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95"
+            className="flex-1 w-full px-4 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 active:scale-95"
           >
             {event?.available_seats === 0 ? "Sold Out" : "Book Now"}
           </button>
           <Link
             to={`/events/${event?.event_id}`}
-            className="flex-1 px-4 py-2.5 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 text-center active:scale-95"
+            className="flex-1 w-full px-4 py-2.5 border border-white/20 hover:border-purple-500/50 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 text-center active:scale-95"
           >
             View Details
           </Link>

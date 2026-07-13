@@ -10,8 +10,8 @@ export default function CategoryFilter({ categories, selectedCategories, onCateg
   }
 
   return (
-    <div className="bg-gray-900 p-6 rounded-2xl sticky top-24">
-      <h3 className="text-xl font-bold mb-4">Categories</h3>
+    <div className="bg-gray-900 p-4 sm:p-6 rounded-2xl sticky top-4 lg:top-24">
+      <h3 className="text-lg sm:text-xl font-bold mb-4">Categories</h3>
 
       {categories.length === 0 ? (
         <p className="text-gray-400">No categories available</p>

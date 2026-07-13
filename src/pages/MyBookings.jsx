@@ -96,12 +96,12 @@ function MyBookings() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
+    <div className="min-h-screen bg-gray-950 text-white overflow-x-hidden">
       <Navbar />
 
-      <div className="px-6 py-10 max-w-7xl mx-auto">
+      <div className="px-4 sm:px-6 py-8 sm:py-10 max-w-7xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl font-bold text-white mb-2">My Bookings</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2 break-words">My Bookings</h1>
           <p className="text-gray-400">View and manage your event bookings</p>
         </div>
 
@@ -146,9 +146,9 @@ function MyBookings() {
               return (
                 <div
                   key={booking.booking_id}
-                  className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-purple-500/40 transition-all duration-300"
+                  className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 hover:border-purple-500/40 transition-all duration-300"
                 >
-                  <div className="flex flex-col md:flex-row gap-6">
+                  <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                     <div className="shrink-0">
                       {(() => {
                         const img = getEventImage(event || {})
@@ -165,8 +165,8 @@ function MyBookings() {
                         )
                       })()}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 break-words">
                         {event?.title || "Unknown Event"}
                       </h3>
 
@@ -201,7 +201,7 @@ function MyBookings() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 md:items-end">
+                    <div className="flex flex-col gap-2 md:items-end w-full md:w-auto">
                       {payment && payment.payment_status === 'pending' && (
                         <>
                           <button

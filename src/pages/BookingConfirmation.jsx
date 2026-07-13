@@ -94,8 +94,8 @@ function BookingConfirmation() {
     return (
       <div className="bg-gray-950 min-h-screen text-white">
         <Navbar />
-        <div className="px-10 py-20 text-center">
-          <h1 className="text-4xl font-bold mb-4">Booking Not Found</h1>
+        <div className="px-4 sm:px-10 py-20 text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 break-words">Booking Not Found</h1>
           <p className="text-gray-400 mb-8">The booking you're looking for doesn't exist.</p>
           <button
             onClick={() => navigate('/events')}
@@ -139,10 +139,10 @@ function BookingConfirmation() {
   }
 
   return (
-    <div className="bg-gray-950 min-h-screen text-white">
+    <div className="bg-gray-950 min-h-screen text-white overflow-x-hidden">
       <Navbar />
 
-      <div className="px-4 md:px-10 py-10">
+      <div className="px-4 md:px-10 py-8 md:py-10">
         {/* Success Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500/20 rounded-full mb-6">
@@ -150,22 +150,22 @@ function BookingConfirmation() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold mb-2">Booking Confirmed!</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2 break-words">Booking Confirmed!</h1>
           <p className="text-gray-400">Your tickets have been successfully booked</p>
         </div>
 
         {/* Booking Details */}
         <div className="max-w-3xl mx-auto space-y-6">
           {/* Main Card */}
-          <div className="bg-gray-900 rounded-2xl p-8 border border-white/10">
-            <div className="flex justify-between items-start mb-6">
+          <div className="bg-gray-900 rounded-2xl p-6 sm:p-8 border border-white/10">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6">
               <div>
                 <p className="text-gray-400 text-sm mb-1">Booking ID</p>
-                <p className="text-2xl font-bold">#{booking.booking_id}</p>
+                <p className="text-xl sm:text-2xl font-bold break-words">#{booking.booking_id}</p>
               </div>
-              <div className="text-right">
+              <div className="text-left sm:text-right">
                 <p className="text-gray-400 text-sm mb-1">Booking Date</p>
-                <p className="text-lg">{formatDate(booking.booking_date)}</p>
+                <p className="text-base sm:text-lg break-words">{formatDate(booking.booking_date)}</p>
               </div>
             </div>
 
@@ -181,7 +181,7 @@ function BookingConfirmation() {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-bold mb-4">{event?.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 break-words">{event?.title}</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
@@ -250,12 +250,12 @@ function BookingConfirmation() {
               <h2 className="text-xl font-bold mb-4">🎟️ Your Tickets</h2>
               <div className="space-y-3">
                 {tickets.map((ticket, i) => (
-                  <div key={ticket.ticket_id} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+                  <div key={ticket.ticket_id} className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div>
                       <p className="text-sm text-gray-400">Ticket #{i + 1}</p>
                       <p className="font-mono text-sm text-purple-400">{ticket.qr_code}</p>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 flex-wrap">
                       <span className="text-sm font-semibold text-white">Seat {ticket.seat_number}</span>
                       <span className="text-xs text-gray-500">ID: {ticket.ticket_id}</span>
                     </div>
@@ -267,17 +267,17 @@ function BookingConfirmation() {
 
           {/* Payment Card */}
           {payment && (
-            <div className="bg-gray-900 rounded-2xl p-8 border border-white/10">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-gray-900 rounded-2xl p-6 sm:p-8 border border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                 <h2 className="text-xl font-bold">💳 Payment Details</h2>
                 {paymentBadge()}
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <p className="text-gray-400 text-sm">Payment ID</p>
                   <p className="font-semibold">#{payment.payment_id}</p>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <p className="text-gray-400 text-sm">Amount</p>
                   <p className="text-xl font-bold text-green-400">{formatCurrency(payment.amount)}</p>
                 </div>
@@ -287,13 +287,13 @@ function BookingConfirmation() {
                 <div className="mt-6 flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleSimulatePayment}
-                    className="flex-1 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold rounded-xl transition-all duration-300 active:scale-95"
+                    className="flex-1 w-full px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white font-semibold rounded-xl transition-all duration-300 active:scale-95"
                   >
                     Pay Now (Simulated)
                   </button>
                   <button
                     onClick={handleSimulateFailure}
-                    className="flex-1 px-5 py-2.5 border border-red-500/50 hover:bg-red-500/20 text-red-300 font-semibold rounded-xl transition-all duration-300"
+                    className="flex-1 w-full px-5 py-2.5 border border-red-500/50 hover:bg-red-500/20 text-red-300 font-semibold rounded-xl transition-all duration-300"
                   >
                     Mark as Failed (Test)
                   </button>
@@ -312,7 +312,7 @@ function BookingConfirmation() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => window.print()}
-              className="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2" />
@@ -322,13 +322,13 @@ function BookingConfirmation() {
             </button>
             <button
               onClick={() => navigate('/my-bookings')}
-              className="px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 transition"
+              className="w-full sm:w-auto px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 transition"
             >
               View My Bookings
             </button>
             <button
               onClick={() => navigate('/events')}
-              className="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
+              className="w-full sm:w-auto px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition"
             >
               Browse More Events
             </button>

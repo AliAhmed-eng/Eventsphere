@@ -2,13 +2,13 @@ import RatingStars from './RatingStars'
 
 export default function ReviewSection({ reviews, averageRating, totalReviews, showForm }) {
   return (
-    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 mb-6">
-      <h3 className="text-2xl font-bold text-white mb-6">Reviews & Ratings</h3>
+    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-6 mb-6">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 break-words">Reviews & Ratings</h3>
 
       {/* Rating Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 pb-8 border-b border-white/10">
         <div className="text-center">
-          <div className="text-5xl font-bold text-yellow-400 mb-2">
+          <div className="text-4xl sm:text-5xl font-bold text-yellow-400 mb-2">
             {averageRating > 0 ? averageRating : '—'}
           </div>
           <div className="flex justify-center">
@@ -55,7 +55,7 @@ export default function ReviewSection({ reviews, averageRating, totalReviews, sh
           {reviews.length > 0 ? (
             reviews.map((review) => (
               <div key={review.review_id} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                <div className="flex items-start justify-between mb-2">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-sm font-bold text-white">
                       {(review.users?.name || 'A')[0].toUpperCase()}
@@ -70,7 +70,7 @@ export default function ReviewSection({ reviews, averageRating, totalReviews, sh
                 </div>
 
                 {review.comment && (
-                  <p className="text-gray-300 text-sm mt-2 ml-12">{review.comment}</p>
+                  <p className="text-gray-300 text-sm mt-2 sm:ml-12 break-words">{review.comment}</p>
                 )}
               </div>
             ))

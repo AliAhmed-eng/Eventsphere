@@ -71,8 +71,8 @@ export default function ReviewForm({ eventId, userId, onReviewSubmitted, existin
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 mb-6">
-      <h3 className="text-xl font-bold text-white mb-4">
+    <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 mb-6">
+      <h3 className="text-lg sm:text-xl font-bold text-white mb-4 break-words">
         {existingReview ? 'Edit Your Review' : 'Write a Review'}
       </h3>
 
@@ -107,11 +107,11 @@ export default function ReviewForm({ eventId, userId, onReviewSubmitted, existin
         <p className="text-gray-500 text-sm mt-1">{comment.length}/500</p>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <button
           type="submit"
           disabled={loading}
-          className="flex-1 px-4 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-300 active:scale-95"
+          className="flex-1 w-full px-4 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-300 active:scale-95"
         >
           {loading ? '⏳ Submitting...' : (existingReview ? 'Update Review' : 'Submit Review')}
         </button>
@@ -120,7 +120,7 @@ export default function ReviewForm({ eventId, userId, onReviewSubmitted, existin
             type="button"
             onClick={handleDelete}
             disabled={loading}
-            className="px-6 py-2.5 border border-red-500/50 hover:bg-red-500/20 text-red-300 font-semibold rounded-xl transition-all duration-300"
+            className="w-full sm:w-auto px-6 py-2.5 border border-red-500/50 hover:bg-red-500/20 text-red-300 font-semibold rounded-xl transition-all duration-300"
           >
             Delete
           </button>

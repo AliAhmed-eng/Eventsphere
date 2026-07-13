@@ -155,11 +155,11 @@ function Profile() {
   }
 
   return (
-    <div className="bg-gray-950 min-h-screen text-white">
+    <div className="bg-gray-950 min-h-screen text-white overflow-x-hidden">
       <Navbar />
 
-      <div className="px-10 py-10 max-w-2xl mx-auto">
-        <h1 className="text-5xl font-bold mb-10">My Profile</h1>
+      <div className="px-4 sm:px-6 md:px-10 py-8 md:py-10 max-w-2xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 md:mb-10 break-words">My Profile</h1>
 
         {message && (
           <div className={`mb-6 p-4 rounded-lg text-center ${message.includes('✓') ? 'bg-green-900' : 'bg-red-900'}`}>
@@ -167,26 +167,26 @@ function Profile() {
           </div>
         )}
 
-        <div className="bg-gray-900 p-8 rounded-2xl">
+        <div className="bg-gray-900 p-6 sm:p-8 rounded-2xl">
           {!isEditing ? (
             // View Mode
             <div className="space-y-6">
               <div>
                 <label className="block text-gray-400 text-sm">Name</label>
-                <p className="text-2xl font-semibold">{user.name || 'Not set'}</p>
+                <p className="text-xl sm:text-2xl font-semibold break-words">{user.name || 'Not set'}</p>
               </div>
 
               <div>
                 <label className="block text-gray-400 text-sm">Email</label>
-                <p className="text-2xl font-semibold">{user.email || 'Not set'}</p>
+                <p className="text-xl sm:text-2xl font-semibold break-words">{user.email || 'Not set'}</p>
               </div>
 
               <div>
                 <label className="block text-gray-400 text-sm">Phone</label>
-                <p className="text-2xl font-semibold">{user.phone || 'Not set'}</p>
+                <p className="text-xl sm:text-2xl font-semibold break-words">{user.phone || 'Not set'}</p>
               </div>
 
-              <div className="pt-6 flex gap-4">
+              <div className="pt-6 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setIsEditing(true)}
                   className="flex-1 bg-purple-600 py-3 rounded-lg hover:bg-purple-700 transition font-semibold"
@@ -205,7 +205,7 @@ function Profile() {
             // Edit Mode
             <div className="space-y-6">
               <div>
-                <label className="block text-lg font-semibold mb-2">Name</label>
+                <label className="block text-base sm:text-lg font-semibold mb-2">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -216,7 +216,7 @@ function Profile() {
               </div>
 
               <div>
-                <label className="block text-lg font-semibold mb-2">Email</label>
+                <label className="block text-base sm:text-lg font-semibold mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -227,7 +227,7 @@ function Profile() {
               </div>
 
               <div>
-                <label className="block text-lg font-semibold mb-2">Phone</label>
+                <label className="block text-base sm:text-lg font-semibold mb-2">Phone</label>
                 <input
                   type="tel"
                   name="phone"
@@ -237,7 +237,7 @@ function Profile() {
                 />
               </div>
 
-              <div className="pt-6 flex gap-4">
+              <div className="pt-6 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={handleSaveProfile}
                   disabled={loading}

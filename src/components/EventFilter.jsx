@@ -49,13 +49,13 @@ function EventFilter({ onFilterChange }) {
   }
 
   return (
-    <div className="bg-gray-900 p-6 rounded-2xl shadow-lg mb-8">
-      <h2 className="text-2xl font-bold mb-6 text-white">Filter Events</h2>
+    <div className="bg-gray-900 p-4 sm:p-6 rounded-2xl shadow-lg mb-8">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6 text-white">Filter Events</h2>
 
       <div className="space-y-6">
         {/* Search */}
         <div>
-          <label className="block text-lg font-semibold text-white mb-2">
+          <label className="block text-base sm:text-lg font-semibold text-white mb-2">
             Search Event
           </label>
           <input
@@ -69,7 +69,7 @@ function EventFilter({ onFilterChange }) {
 
         {/* Price Range */}
         <div>
-          <label className="block text-lg font-semibold text-white mb-2">
+          <label className="block text-base sm:text-lg font-semibold text-white mb-2 break-words">
             Price Range: {formatCurrency(priceRange.min)} - {formatCurrency(priceRange.max)}
           </label>
           <div className="space-y-2">
@@ -94,7 +94,7 @@ function EventFilter({ onFilterChange }) {
 
         {/* Available Seats */}
         <div>
-          <label className="block text-lg font-semibold text-white mb-2">
+          <label className="block text-base sm:text-lg font-semibold text-white mb-2">
             Minimum Available Seats: {minSeats}
           </label>
           <input

@@ -131,13 +131,13 @@ function Wishlist() {
   }
 
   return (
-    <div className="bg-gray-950 min-h-screen text-white">
+    <div className="bg-gray-950 min-h-screen text-white overflow-x-hidden">
       <Navbar />
 
-      <div className="px-4 md:px-10 py-10 max-w-7xl mx-auto">
+      <div className="px-4 md:px-10 py-8 md:py-10 max-w-7xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-5xl font-bold mb-2">❤️ My Wishlist</h1>
-          <p className="text-gray-400 text-lg">Your saved favorite events</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 break-words">❤️ My Wishlist</h1>
+          <p className="text-gray-400 text-base sm:text-lg">Your saved favorite events</p>
         </div>
 
         {message && (
@@ -154,15 +154,15 @@ function Wishlist() {
                 return (
                   <div
                     key={item.wishlist_id || item.event_id}
-                    className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500/40 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-6 hover:border-purple-500/40 transition-all duration-300"
                   >
-                    <div className="flex gap-6">
+                    <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                       <div className="shrink-0">
                         {(() => {
                           const img = getEventImage(ev)
                           return (
                             <div
-                              className="w-32 h-32 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition"
+                              className="w-full md:w-32 h-32 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition"
                               style={{ background: `linear-gradient(135deg, ${img.gradient[0]}, ${img.gradient[1]}, ${img.gradient[2]})` }}
                               onClick={() => navigate(`/events/${item.event_id}`)}
                             >
@@ -175,9 +175,9 @@ function Wishlist() {
                         })()}
                       </div>
 
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <h3
-                          className="text-2xl font-bold mb-2 cursor-pointer hover:text-purple-400 transition"
+                          className="text-xl sm:text-2xl font-bold mb-2 cursor-pointer hover:text-purple-400 transition break-words"
                           onClick={() => navigate(`/events/${item.event_id}`)}
                         >
                           {ev?.title}
@@ -195,7 +195,7 @@ function Wishlist() {
                         <p className="text-gray-400 text-sm mb-1">📍 {ev?.venue}</p>
                         <p className="text-gray-400 text-sm mb-3">📅 {formatDate(ev?.event_date)}</p>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                           <div>
                             <p className="text-gray-500 text-sm">Price</p>
                             <p className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
@@ -211,22 +211,22 @@ function Wishlist() {
                         </div>
                       </div>
 
-                      <div className="flex flex-col gap-3 justify-start">
+                      <div className="flex flex-col gap-3 justify-start w-full md:w-auto">
                         <button
                           onClick={() => navigate(`/events/${item.event_id}`)}
-                          className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-xl transition font-semibold whitespace-nowrap"
+                          className="w-full md:w-auto px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-xl transition font-semibold whitespace-nowrap"
                         >
                           View Details
                         </button>
                         <button
                           onClick={() => handleAddToCart(item)}
-                          className="px-4 py-2 border border-green-500/50 hover:bg-green-500/20 text-green-300 rounded-xl transition font-semibold whitespace-nowrap"
+                          className="w-full md:w-auto px-4 py-2 border border-green-500/50 hover:bg-green-500/20 text-green-300 rounded-xl transition font-semibold whitespace-nowrap"
                         >
                           Add to Cart
                         </button>
                         <button
                           onClick={() => handleRemoveFromWishlist(item.event_id)}
-                          className="px-4 py-2 border border-red-500/50 hover:bg-red-500/20 text-red-300 rounded-xl transition font-semibold whitespace-nowrap"
+                          className="w-full md:w-auto px-4 py-2 border border-red-500/50 hover:bg-red-500/20 text-red-300 rounded-xl transition font-semibold whitespace-nowrap"
                         >
                           Remove
                         </button>
@@ -255,13 +255,13 @@ function Wishlist() {
             </div>
           </>
         ) : (
-          <div className="text-center py-24">
+          <div className="text-center py-24 px-4">
             <div className="text-6xl mb-4">❤️</div>
-            <p className="text-3xl font-bold mb-2">Your wishlist is empty</p>
-            <p className="text-gray-400 text-lg mb-8">Save your favorite events to view them later</p>
+            <p className="text-2xl sm:text-3xl font-bold mb-2">Your wishlist is empty</p>
+            <p className="text-gray-400 text-base sm:text-lg mb-8">Save your favorite events to view them later</p>
             <button
               onClick={() => navigate('/events')}
-              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-xl font-bold text-lg transition inline-block"
+              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-xl font-bold text-base sm:text-lg transition inline-block"
             >
               Browse Events
             </button>
